@@ -1,0 +1,92 @@
+servers = (
+  {
+    address = "<%= scope.lookupvar 'irssi::server::server_address' %>";
+    chatnet = "<%= scope.lookupvar 'irssi::server::server_chatnet' %>;
+    port = "<%= scope.lookupvar 'irssi::server::server_port' %>";
+    use_ssl = "<%= scope.lookupvar 'irssi::server::server_use_ssl' %>";
+    ssl_verify = "<%= scope.lookupvar 'irssi::server::server_ssl_verify' %>";
+    ssl_capath = "<%= scope.lookupvar 'irssi::server::server_ssl_capath' %>";
+    autoconnect = <%= scope.lookupvar 'irssi::server::server_autoconnect' %>;
+  }
+);
+
+chatnets = {
+  <%= scope.lookupvar 'irssi::server::server_chatnet' %> = {
+    type = "IRC";
+    nick = "<%= scope.lookupvar 'irssi::user::nick' %>";
+  };
+};
+
+aliases = {
+  J = "join";
+  WJOIN = "join -window";
+  WQUERY = "query -window";
+  LEAVE = "part";
+  BYE = "quit";
+  EXIT = "quit";
+  SIGNOFF = "quit";
+  DESCRIBE = "action";
+  DATE = "time";
+  HOST = "userhost";
+  LAST = "lastlog";
+  SAY = "msg *";
+  WI = "whois";
+  WII = "whois $0 $0";
+  WW = "whowas";
+  W = "who";
+  N = "names";
+  M = "msg";
+  T = "topic";
+  C = "clear";
+  CL = "clear";
+  K = "kick";
+  KB = "kickban";
+  KN = "knockout";
+  BANS = "ban";
+  B = "ban";
+  MUB = "unban *";
+  UB = "unban";
+  IG = "ignore";
+  UNIG = "unignore";
+  SB = "scrollback";
+  UMODE = "mode $N";
+  WC = "window close";
+  WN = "window new hide";
+  SV = "say Irssi $J ($V) - http://irssi.org/";
+  GOTO = "sb goto";
+  CHAT = "dcc chat";
+  RUN = "SCRIPT LOAD";
+  CALC = "exec - if which bc &>/dev/null\\; then echo '$*' | bc | awk '{print \"$*=\"$$1}'\\; else echo bc was not found\\; fi";
+  SBAR = "STATUSBAR";
+  INVITELIST = "mode $C +I";
+  Q = "QUERY";
+  "MANUAL-WINDOWS" = "set use_status_window off;set autocreate_windows off;set autocreate_query_level none;set autoclose_windows off;set reuse_unused_windows on;save";
+  EXEMPTLIST = "mode $C +e";
+  ATAG = "WINDOW SERVER";
+};
+
+statusbar = {
+  default = {
+    topic = {
+      items = {
+        topicbarstart = { priority = "100"; };
+        topic = { };
+        topic_empty = { };
+        topicbarend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    window = {
+      items = {
+        barstart = { priority = "100"; };
+        time = { };
+        user = { };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        act = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
