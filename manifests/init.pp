@@ -4,29 +4,28 @@
 #
 #   include irssi
 class irssi {
-  include irssi::config
-  require irssi::server
-  require irssi::user
   require homebrew
+  require irssi::config
 
-  file { [
-    $irssi::config::configdir,
-    $irssi::config::logdir
-  ]:
-    ensure => directory
-  }
+#  file {
+#    [
+#      $irssi::config::configdir,
+#      $irssi::config::logdir
+#    ]:
+#    ensure => directory
+#  }
 
-  file { $irssi::config::configfile:
-    content => template('irssi/config/irssi/config.erb'),
-    notify  => Service['dev.irssi']
-  }
+#  file { "${irssi::config::configdir}/config":
+#    content   => template('irssi/config/irssi/config.erb'),
+#    require   => File[$irssi::config::configdir]
+#  }
 
   homebrew::formula { 'irssi':
     before => Package['boxen/brews/irssi'],
   }
 
   package { 'boxen/brews/irssi':
-    ensure => $irssi::config::version
+    ensure => '0.0.2a'
   }
 
 }
