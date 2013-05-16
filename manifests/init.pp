@@ -5,6 +5,8 @@
 #   include irssi
 class irssi {
   include irssi::config
+  require irssi::server
+  require irssi::user
   require homebrew
 
   file { [

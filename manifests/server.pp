@@ -15,7 +15,7 @@
 #
 
 class irssi::server($address = undef, $chatnet = undef, $port = undef, $use_ssl = undef, $ssl_verify = undef, $ssl_capath = undef, $autoconnect = 'yes') {
-  include irssi::config
+  require irssi::config
 
   $server_addr = $address ? {
     undef       => 'irc.freenode.net',
