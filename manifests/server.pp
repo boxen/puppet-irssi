@@ -2,7 +2,7 @@
 # If options are not set, use Freenode without SSL
 #
 # Usage:
-# 
+#
 #   class { 'irssi::server':
 #     address => 'irc.freenode.net',
 #     chatnet => 'freenode',
@@ -14,7 +14,7 @@
 #  }
 #
 
-define irssi::server($address = undef, $chatnet = undef, $port = undef, $use_ssl = undef, $ssl_verify = undef, $ssl_capath = undef, $autoconnect = 'yes') {
+class irssi::server($address = undef, $chatnet = undef, $port = undef, $use_ssl = undef, $ssl_verify = undef, $ssl_capath = undef, $autoconnect = 'yes') {
   include irssi::config
 
   $server_addr = $address ? {

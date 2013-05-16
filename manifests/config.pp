@@ -10,5 +10,4 @@ class irssi::config {
   $executable  = "${boxen::config::homebrewdir}/sbin/irssi"
   $logdir      = "${boxen::config::logdir}/irssi"
   $consolefile = "${logdir}/console.log"
-  $port        = 6667
 }
