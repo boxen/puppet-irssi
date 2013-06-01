@@ -1,4 +1,4 @@
-# irssi Puppet Module for Boxen [![Build Status](https://travis-ci.org/boxen/puppet-template.png?branch=master)](https://travis-ci.org/boxen/puppet-template)
+# irssi Puppet Module for Boxen [![Build Status](https://travis-ci.org/carwin/puppet-irssi.png?branch=master)](https://travis-ci.org/carwin/puppet-irssi)
 
 Install [irssi](http://www.irssi.org/) the (irc) client of the future.
 
