@@ -1,4 +1,12 @@
-# This is a placeholder class.
-class template {
-  anchor { 'Hello_World': }
+# Public: Install igure irssi from homebrew.
+#
+# Examples
+#
+#   include irssi
+class irssi {
+  include homebrew
+
+  package { 'irssi':
+    provider => homebrew,
+  }
 }
